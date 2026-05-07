@@ -1,0 +1,177 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Alemss Light Theme */
+    --background:         0 0% 98%;
+    --foreground:         222 47% 11%;
+    --card:               0 0% 100%;
+    --card-foreground:    222 47% 11%;
+    --popover:            0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary:            230 90% 64%;
+    --primary-foreground: 0 0% 100%;
+    --secondary:          210 20% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted:              210 20% 96%;
+    --muted-foreground:   215 16% 47%;
+    --accent:             210 20% 96%;
+    --accent-foreground:  222 47% 11%;
+    --destructive:        0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border:             214 32% 91%;
+    --input:              214 32% 91%;
+    --ring:               230 90% 64%;
+    --radius:             0.5rem;
+    --chart-1:            230 90% 64%;
+    --chart-2:            160 60% 45%;
+    --chart-3:            30 80% 55%;
+    --chart-4:            280 65% 60%;
+    --chart-5:            340 75% 55%;
+  }
+
+  .dark {
+    --background:         222 47% 7%;
+    --foreground:         210 40% 98%;
+    --card:               222 47% 10%;
+    --card-foreground:    210 40% 98%;
+    --popover:            222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary:            230 90% 64%;
+    --primary-foreground: 0 0% 100%;
+    --secondary:          217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted:              217 33% 17%;
+    --muted-foreground:   215 20% 65%;
+    --accent:             217 33% 17%;
+    --accent-foreground:  210 40% 98%;
+    --destructive:        0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border:             217 33% 17%;
+    --input:              217 33% 17%;
+    --ring:               230 90% 64%;
+    --chart-1:            220 70% 50%;
+    --chart-2:            160 60% 45%;
+    --chart-3:            30 80% 55%;
+    --chart-4:            280 65% 60%;
+    --chart-5:            340 75% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Skeleton loader */
+  .skeleton {
+    @apply bg-gradient-to-r from-muted via-muted/60 to-muted bg-[length:200%_100%] animate-shimmer rounded;
+  }
+
+  /* Price tag principal */
+  .price-current {
+    @apply text-xl font-bold text-foreground;
+  }
+
+  .price-normal {
+    @apply text-sm text-muted-foreground line-through;
+  }
+
+  .price-card {
+    @apply text-sm font-medium text-brand-600;
+  }
+
+  /* Badge de descuento */
+  .badge-discount {
+    @apply inline-flex items-center gap-0.5 text-xs font-semibold text-discount bg-red-50 px-1.5 py-0.5 rounded;
+  }
+
+  .dark .badge-discount {
+    @apply bg-red-900/30 text-red-400;
+  }
+
+  /* Card de producto hover */
+  .product-card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  /* Container principal del sitio */
+  .site-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Sección home */
+  .home-section {
+    @apply mb-10;
+  }
+
+  .section-header {
+    @apply flex items-center justify-between mb-4;
+  }
+
+  .section-title {
+    @apply text-xl font-bold text-foreground;
+  }
+
+  .section-link {
+    @apply text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors;
+  }
+
+  /* Filtros sidebar */
+  .filter-group {
+    @apply space-y-3 border-b border-border pb-5;
+  }
+
+  .filter-title {
+    @apply text-sm font-semibold text-foreground mb-3;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Line clamp helpers */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+}
