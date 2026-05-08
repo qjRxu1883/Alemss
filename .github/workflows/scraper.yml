@@ -17,7 +17,7 @@ jobs:
           cache: 'npm'
 
       - name: Instalar dependencias
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Instalar Playwright
         run: npx playwright install chromium --with-deps
